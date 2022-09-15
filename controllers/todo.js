@@ -15,7 +15,6 @@ const getAllTodos = asyncWrapper(async (req, res, next) => {
 const getSingleTodo = asyncWrapper(async (req, res, next) => {
   const { id } = req.params;
   const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id]);
-  console.log("todo", todo);
   if (!todo.rows.length) {
     return res
       .status(StatusCodes.NOT_FOUND)
