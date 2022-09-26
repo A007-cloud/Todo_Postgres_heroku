@@ -18,7 +18,8 @@ const devConfig = {
 // });
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL, //HEROKU-ADDONSs
+  connectionString:
+    "postgres://bhzxlapvjjicch:5d01b0c420fe2d6bd228ae7ef79ec6050e62d3080c", //HEROKU-ADDONSs
 };
 
 const pool = new Pool(
