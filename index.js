@@ -15,9 +15,9 @@ app.use(
   })
 );
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+app.get("/", (req, res) => {
+  res.send("index page");
+});
 
 // routes
 app.use("/api/v1/todo", todoRouter);
