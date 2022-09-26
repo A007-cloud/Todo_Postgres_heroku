@@ -1,13 +1,13 @@
 const Pool = require("pg").Pool;
 require("dotenv").config();
 
-const devConfig = {
-  user: process.env.PG_USER,
-  host: process.env.PG_ENDPOINT,
-  database: process.env.PG_DB,
-  password: process.env.PG_PASS,
-  port: process.env.PG_PORT,
-};
+// const devConfig = {
+//   user: process.env.PG_USER,
+//   host: process.env.PG_ENDPOINT,
+//   database: process.env.PG_DB,
+//   password: process.env.PG_PASS,
+//   port: process.env.PG_PORT,
+// };
 
 // const pool = new Pool({
 //   user: "hwseyuwwbcuiqj",
@@ -17,15 +17,20 @@ const devConfig = {
 //   port: 5432,
 // });
 
-const proConfig = {
-  connectionString:
-    "postgres://bhzxlapvjjicch:5d01b0c420fe2d6bd228ae7ef79ec6050e62d3080c", //HEROKU-ADDONSs
-};
+// const proConfig = {
+//   connectionString:
+//     "postgres://bhzxlapvjjicch:5d01b0c420fe2d6bd228ae7ef79ec6050e62d3080c", //HEROKU-ADDONSs
+// };
 
-const pool = new Pool(
-  process.env.NODE_ENV === "production" ? proConfig : devConfig
-);
+// const pool = new Pool(
+//   process.env.NODE_ENV === "production" ? proConfig : devConfig
+// );
 
 // const pool = new Pool(proConfig);
+
+const pool = new Pool({
+  connectionString: process.env.DEV_POSTGRES_URL,
+  ssl: true,
+});
 
 module.exports = pool;
